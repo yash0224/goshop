@@ -14,6 +14,8 @@ import (
 	"goshop/pkg/redis"
 )
 
+//testing
+
 //	@title			GoShop Swagger API
 //	@version		1.0
 //	@description	Swagger API for GoShop.
