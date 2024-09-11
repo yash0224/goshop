@@ -53,6 +53,7 @@ func main() {
 		Database: cfg.RedisDB,
 	})
 
+	// first git psuh
 	go func() {
 		httpSvr := httpServer.NewServer(validator, db, cache)
 		if err = httpSvr.Run(); err != nil {
