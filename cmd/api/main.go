@@ -36,7 +36,7 @@ import (
 func main() {
 	cfg := config.LoadConfig()
 	logger.Initialize(cfg.Environment)
-
+	// load config
 	db, err := dbs.NewDatabase(cfg.DatabaseURI)
 	if err != nil {
 		logger.Fatal("Cannot connect to database", err)
