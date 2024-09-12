@@ -68,3 +68,40 @@ func main() {
 		logger.Fatal(err)
 	}
 }
+
+/* func main() {
+	cfg := config.LoadConfig()
+	logger.Initialize(cfg.Environment)
+	// load config
+	db, err := dbs.NewDatabase(cfg.DatabaseURI)
+	if err != nil {
+		logger.Fatal("Cannot connect to database", err)
+	}
+
+	err = db.AutoMigrate(&userModel.User{}, &productModel.Product{}, orderModel.Order{}, orderModel.OrderLine{})
+	if err != nil {
+		logger.Fatal("Database migration fail", err)
+	}
+
+	validator := validation.New()
+
+	cache := redis.New(redis.Config{
+		Address:  cfg.RedisURI,
+		Password: cfg.RedisPassword,
+		Database: cfg.RedisDB,
+	})
+
+	// first git psuh
+	go func() {
+		httpSvr := httpServer.NewServer(validator, db, cache)
+		if err = httpSvr.Run(); err != nil {
+			logger.Fatal(err)
+		}
+	}()
+
+	grpcSvr := grpcServer.NewServer(validator, db, cache)
+	if err = grpcSvr.Run(); err != nil {
+		logger.Fatal(err)
+	}
+}
+*/
